@@ -1,0 +1,19 @@
+{
+  "name": "com.medleymed.VideoCall",
+  "version": "1.0.0",
+  "description": "JitsiVideo call Plugin for Deployment",
+  "cordova": {
+    "id": "com.medleymed.VideoCall",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "Chakravarthy,Ravikiran",
+  "license": "ISC"
+}

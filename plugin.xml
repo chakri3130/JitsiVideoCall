@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.medleymed.VideoCall" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>JitsiVCall</name>
+    <js-module name="JitsiVCall" src="www/JitsiVCall.js">
+        <clobbers target="cordova.plugins.JitsiVCall" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="JitsiVCall">
+                <param name="android-package" value="com.medleymed.VideoCall.JitsiVCall" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml" />
+        <source-file src="src/android/JitsiVCall.java" target-dir="src/cordova/plugin/JitsiVCall" />
+        <source-file src="src/android/Videocall.java" target-dir="src/cordova/plugin/JitsiVCall" />
+        <resource-file src="src/android/res/values/colors.xml" target="res/values/colors.xml" />
+        <resource-file src="src/android/res/values/styles.xml" target="res/values/styles.xml" />
+        <config-file parent="/*" target="AndroidManifest.xml">
+         <uses-feature android:name="android.hardware.camera" />
+         <uses-feature android:name="android.hardware.camera.autofocus" />
+         <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+         <uses-permission android:name="android.permission.CAMERA" />
+         <uses-permission android:name="android.permission.INTERNET" />
+         <uses-permission android:name="android.permission.RECORD_AUDIO" />
+         <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+      </config-file>
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="JitsiVCall">
+                <param name="ios-package" value="JitsiVCall" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/JitsiVCall.m" />
+        <source-file src="src/ios/ConferenceViewController.m" />
+        <source-file src="src/ios/ConferenceViewController.h" />
+        <source-file src="src/ios/ConferenceViewController.xib" />
+        <source-file src="src/ios/JitsiMeet.framework" />
+        <source-file src="src/ios/WebRTC.framework" />
+    </platform>
+</plugin>
